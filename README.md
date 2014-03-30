@@ -11,7 +11,7 @@ What does it do
 
 -It also sends a BatterLow email when the battery goes below 20%. 
 
--If the user clicks the select button, it sends an email informing of the current battery levels.
+-If the user clicks the select button, it sends an email informing of the current battery levels. 
 
 API used
 ========
