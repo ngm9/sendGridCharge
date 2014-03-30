@@ -11,6 +11,8 @@ function(e) {
     var toName="Naman";
     var fromMail="info@sendgridcharge.com";
     var subject="sendGridCharge Notification";
+    var sendGriduser="xxxxxx"
+    var sendGridpass="xxxxxx"
 
     if (e.payload.myInt){
         console.log("battery status changed");
@@ -18,7 +20,7 @@ function(e) {
         var body = "your charger was attached/detached";
         req.open('POST', 'https://api.sendgrid.com/api/mail.send.json', true);
         req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        req.send("api_user=namangmuley&api_key=bisnnsendgrid7&to=" + toMail + "&toname="+toName+"&subject="+subject+"&text="+body+"&from="+fromMail)
+        req.send("api_user="+sendGriduser+"&api_key="+sendGridpass+"&to=" + toMail + "&toname="+toName+"&subject="+subject+"&text="+body+"&from="+fromMail)
         req.onload = function (f){
            if(req.status == 200){
                 console.log("SENT");
@@ -30,7 +32,7 @@ function(e) {
         var body = "your battery is lower than 20%";
         req.open('POST', 'https://api.sendgrid.com/api/mail.send.json', true);
         req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        req.send("api_user=namangmuley&api_key=bisnnsendgrid7&to="+toMail+"&toname="+toName+"&subject="+subject+"&text="+body+"&from="+fromMail)
+        req.send("api_user="+sendGriduser+"&api_key="+sendGridpass+"&to="+toMail+"&toname="+toName+"&subject="+subject+"&text="+body+"&from="+fromMail)
         req.onload = function (f){
            if(req.status == 200){
                 console.log("SENT");
@@ -43,7 +45,7 @@ function(e) {
         var body = "the battery level of your pebble watch is: "+ e.payload.selecClick +"%";
         req.open('POST', 'https://api.sendgrid.com/api/mail.send.json', true);
         req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        req.send("api_user=namangmuley&api_key=bisnnsendgrid7&to="+toMail+"&toname="+toName+"&subject="+subject+"&text="+body+"&from="+fromMail)
+        req.send("api_user="+sendGriduser+"&api_key="+sendGridpass+"&to="+toMail+"&toname="+toName+"&subject="+subject+"&text="+body+"&from="+fromMail)
         req.onload = function (f){
            if(req.status == 200){
                 console.log("SENT");
