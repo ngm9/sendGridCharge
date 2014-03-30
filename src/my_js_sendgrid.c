@@ -9,7 +9,7 @@ static void select_click_handler(ClickRecognizerRef recognizer, void *context) {
   DictionaryIterator *iter2;
   app_message_outbox_begin(&iter2);
   BatteryChargeState cs = battery_state_service_peek();
-  Tuplet value = TupletInteger(1, cs.charge_percent);
+  Tuplet value = TupletInteger(3, cs.charge_percent);
   dict_write_tuplet(iter2, &value);
   app_message_outbox_send();
 }
@@ -53,12 +53,19 @@ static void window_unload(Window *window) {
 }
 
 static void handle_battery(){
+
+  DictionaryIterator *iter;
+  app_message_outbox_begin(&iter);
   BatteryChargeState cs = battery_state_service_peek();
-  if (cs.charge_percent < 95){
-      DictionaryIterator *iter;
-      app_message_outbox_begin(&iter);
-      BatteryChargeState cs = battery_state_service_peek();
-      Tuplet value = TupletInteger(1, cs.charge_percent);
+  Tuplet value = TupletInteger(1, cs.charge_percent);
+  dict_write_tuplet(iter, &value);
+  app_message_outbox_send();
+
+  if (cs.charge_percent < 20){
+      DictionaryIterator *iter2;
+      app_message_outbox_begin(&iter2);
+      BatteryChargeState cs2 = battery_state_service_peek();
+      Tuplet lowBat = TupletInteger(2, cs2.charge_percent);
       dict_write_tuplet(iter, &value);
       app_message_outbox_send();
   }

@@ -10,7 +10,9 @@
   },
   "appKeys": {
     "dummy": 0,
-    "myInt": 1
+    "myInt": 1,
+    "battlow":2,
+    "selectClick":3
   },
   "resources": {
     "media": []
