@@ -1,0 +1,18 @@
+{
+  "uuid": "d6f09b0b-68aa-4568-9747-fc19863d95a7",
+  "shortName": "sendgridCharge",
+  "longName": "sendgridCharge",
+  "companyName": "ngm7",
+  "versionCode": 1,
+  "versionLabel": "1.0.0",
+  "watchapp": {
+    "watchface": false
+  },
+  "appKeys": {
+    "dummy": 0,
+    "myInt": 1
+  },
+  "resources": {
+    "media": []
+  }
+}
